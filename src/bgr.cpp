@@ -21,5 +21,6 @@ void Bgr::Plot(Types::Graphics::Framebuffer &fb,
 	if (x >= fb.width || y >= fb.height) [[unlikely]]
 		return;
 
+	// no need for the bpp because we are already using a 32-bit pointer we move in 4 bytes of memory already
 	fb.address[y * fb.pitch + x ] = color;
 }
