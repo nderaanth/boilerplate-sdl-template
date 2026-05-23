@@ -5,7 +5,8 @@
 // if you think my other algorythyms are slow, access the u32 ptr in 
 // Types::Framebuffer. If you are even  more paranoid, manually use 
 // the surface->pixels in SDL_Surface* that SDL_GetWindowSurface returns
-// (though you still need a window object, obviously). If you still think 
+// (though you still need a window object, obviously), but you still need
+// to cast it to a 32bit int and get the pitch . If you still think 
 // it's slow, it's no longer my problem, complain to the guys behind SDL.
 //
 // If you want to use my lib but don't trust this specific function, make
@@ -13,6 +14,8 @@
 //
 // - Cache the variables that don't change like  the address or width (if you'll actually use the  vars!)
 // - Write to the address but beware of bounds.
+//
+//
 void Bgr::Plot(Types::Graphics::Framebuffer &fb,
 	       uint32_t x, 
 	       uint32_t y, 
