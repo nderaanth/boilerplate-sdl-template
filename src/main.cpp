@@ -30,8 +30,10 @@ int main(void) {
 	// Populate the framebuffer object
 	fb.address = (uint32_t *)surface->pixels;
 
-	// since we use uint32_t for the address, we'll divide the pitch by 4 because surface->pitch is in bytes
-	fb.pitch = surface->pitch / 4;
+	// since we use uint32_t for the address, we'll divide the pitch by how big the
+	// framebuffer address is, which is 4 bytes in this case
+	fb.pitch = surface->pitch / sizeof(fb.address);
+
 	fb.target_framerate = 60;
 	fb.width = window_dimensions.x;
 	fb.height = window_dimensions.y;
